@@ -1,0 +1,226 @@
+body{
+	overflow: hidden;
+}
+#ClientArea{
+	width:800px;
+	height:600px;
+	position:relative
+}
+.cell{
+	border-color:black;
+	border-width:1px;
+	border-style:solid;
+	display:inline;
+	width:192px;
+}
+.headerCell{
+	display:flex;
+    flex-wrap: wrap; 
+	justify-content: center;
+	height:128px;
+	padding-bottom:10px;
+	font-size:4.23mm;
+	padding-top:20px
+}
+.clientCell{
+	display:flex;
+    flex-wrap: wrap; 
+	justify-content: center;
+}
+.headerRow{
+	display:flex;
+    flex-wrap: wrap; 
+	justify-content: center;
+	padding-bottom:17px;
+	padding-top:17px;
+	font-size:4.23mm;
+}
+.picRadio{
+	width:50px;
+	height:50px;
+	box-sizing: border-box;
+    appearance: none;
+    background: white;
+    outline: 1px solid #000;
+}
+.picRadio:checked{
+	background-image:url(src/tick.svg)
+}
+.breakLine{
+	flex-basis: 100%;
+    height: 0;
+}
+#Done{
+	width:100px;
+	height:100px;
+	border:none;
+	background-image:url(src/tick.svg);
+	background-size:cover;
+	position:absolute;
+	right:20px;
+	bottom:20px;
+}
+.icon{
+	width:152px;
+	height:108px;
+}
+.row{
+	display: flex;
+}
+.modal{
+	z-index:1;
+	display:none;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0);
+	position:fixed;
+	top:0
+}
+#ContentModal{
+	position:fixed;
+	margin:auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    overflow: auto; /* Enable scroll if needed */
+    display:flex;
+    flex-wrap: wrap; 
+	justify-content: center;
+	font-size:16pt;
+	background:white;
+	width:fit-content;
+	height:fit-content;
+	border: solid 2px black;
+	border-radius:10px;
+	padding-bottom:2px;
+	padding-top:2px;
+	padding-left:10px;
+	padding-right:10px
+}
+#OK{
+	width:50px;
+	height:50px;
+	border:none;
+	background-image:url(src/tick.svg);
+	background-size:cover;
+}
+@media (orientation: portrait){
+	body{
+    	overflow: visible;
+    }
+    #ClientArea{
+    	width:1000px;
+    	height:800px;
+    	position:relative
+    }
+	.cell{
+		width:212px
+	}
+	.icon{
+		width:184px;
+    	height:130px;
+	}
+	.headerCell{
+		font-size:30pt;
+		height:170px;
+	}
+	.headerRow{
+		font-size:30pt;
+	}
+	.picRadio{
+	    width:75px;
+	    height:75px
+	}
+	#Done{
+		width:150px;
+		height:150px;
+	}
+	#ContentModal{
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:25%;
+		margin-bottom:75%;
+	    font-size:40pt;
+	}
+	#OK{
+		width:75px;
+	    height:75px;
+	}
+}
+@media (max-height: 616px) or (max-width: 816px){
+	#ClientArea{
+	    width:640px;
+	    height:480px;
+	    position:relative}
+	#Done{
+    	width:75px;
+    	height:75px;
+    	border:none;
+    	background-image:url(src/tick.svg);
+    	background-size:cover;
+    	position:absolute;
+    	right:20px;
+    	bottom:20px;
+    }
+	.icon{
+    	width:100px;
+    	height:71px;
+    }
+	.cell{
+		width:120px;
+	}
+	.headerCell{
+		height:115px;
+	    padding-bottom:5px;
+	    padding-top:10px;
+		font-size:4.23mm;
+	}
+	.picRadio{
+	    width:35px;
+	    height:35px;
+	}
+	.headerRow{
+	    padding-bottom:9.5px;
+	    padding-top:9.5px;
+		font-size:4.23mm;
+	}
+}
+@media (max-height: 496px) or (max-width: 656px){
+	#ClientArea{
+	    width:480px;
+	    height:320px;
+	    position:relative}
+	#Done{
+    	width:50px;
+    	height:50px;
+    	border:none;
+    	background-image:url(src/tick.svg);
+    	background-size:cover;
+    	position:absolute;
+    	right:20px;
+    	bottom:20px;
+    }
+	.icon{
+    	width:80px;
+    	height:57px;
+    }
+	.cell{
+		width:90px;
+	}
+	.headerCell{
+		height:80px;
+	    padding-bottom:5px;
+	    padding-top:10px;
+		font-size:3.53mm;
+	}
+	.picRadio{
+	    width:20px;
+	    height:20px;
+	}
+	.headerRow{
+	    padding-bottom:3.333px;
+	    padding-top:3.333px;
+		font-size:4.23mm;
+	}
+}
