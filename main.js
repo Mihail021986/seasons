@@ -3,7 +3,7 @@ var months=new Array();
 var answer=new Array();//ответы пользователя
 var countMonth;
 window.onload=function(){
-    drawGameGrid();
+	drawGameGrid();
 }
 //фиксируем ответ пользователь
 function handleRadioChange(numberMonth){
@@ -21,15 +21,15 @@ let attaboy=false;//флаг выполнения задания
 function DoneClick(){
 	//пользователь должен сопоставить ВСЕ месяцы
 	if(answer.indexOf("")==-1){
-        let numberCorrectAnswers=0;
-	    for(let i=0; i<countMonth; ++i){
-	    	if(months[i].season==answer[i])
-	    		++numberCorrectAnswers;
-	    }
+		let numberCorrectAnswers=0;
+		for(let i=0; i<countMonth; ++i){
+			if(months[i].season==answer[i])
+				++numberCorrectAnswers;
+		}
 		//выведем сообщение о выполнении задания
-	    let verdict=numberCorrectAnswers==countMonth?"Молодец! Так держать!":"Хорошенько подумай.";
+		let verdict=numberCorrectAnswers==countMonth?"Молодец! Так держать!":"Хорошенько подумай.";
 		attaboy=numberCorrectAnswers==countMonth?true:false;
-	    createMessageBox("Правильных ответов "+numberCorrectAnswers+" из "+countMonth+".<br>"+verdict, "info");
+		createMessageBox("Правильных ответов "+numberCorrectAnswers+" из "+countMonth+".<br>"+verdict, "info");
 		console.log(numberCorrectAnswers+" из "+countMonth);
 	}
 	else{
@@ -48,7 +48,7 @@ function createMessageBox(message, type){
 function receivedModalResultOK(type){
 	//если пользователь справился, дадим новое задание
 	if(type=="info" && attaboy){
-	    for(let i=countMonth; i>=1; --i){
+		for(let i=countMonth; i>=1; --i){
 			document.getElementsByClassName("row")[i].remove();
 		}
 		answer=[];//подготовим новым массив ответов
@@ -62,49 +62,49 @@ function drawGameGrid(){
 		//создаём список месяцев без повторений
 		let numberMonth;
 		do{
-		    numberMonth=Math.floor(Math.random()*(13-1)+1);}
+			numberMonth=Math.floor(Math.random()*(13-1)+1);}
 		while(numbersOfMonths.indexOf(numberMonth)!=-1)
 		numbersOfMonths.push(numberMonth);
 		let month=new Month(numberMonth);
 		months.push(month);
 		answer.push("");
-	    let newRow=document.createElement("div");
-	    newRow.setAttribute("class", "row");
-	    newRow.setAttribute("id", i);
-        for(let j=0; j<5; ++j){
-	        let newCell=document.createElement("div");
+		let newRow=document.createElement("div");
+		newRow.setAttribute("class", "row");
+		newRow.setAttribute("id", i);
+		for(let j=0; j<5; ++j){
+			let newCell=document.createElement("div");
 			//в первом столбце храним названия месяцев
-            if(j!=0){
-	  	        newCell.setAttribute("class", "cell clientCell");
-			    let newRadioButton=document.createElement("input");
-			    newRadioButton.setAttribute("type", "radio");
-			    switch(j){
+			if(j!=0){
+				newCell.setAttribute("class", "cell clientCell");
+				let newRadioButton=document.createElement("input");
+				newRadioButton.setAttribute("type", "radio");
+				switch(j){
 					case 1:{
-			            newRadioButton.setAttribute("id", "winter"+i);
+						newRadioButton.setAttribute("id", "winter"+i);
 						newRadioButton.setAttribute("value", "зима");
-				        break;}
+						break;}
 					case 2:{
-			            newRadioButton.setAttribute("id", "spring"+i);
+						newRadioButton.setAttribute("id", "spring"+i);
 						newRadioButton.setAttribute("value", "весна");
-				        break;}
+						break;}
 					case 3:{
-			            newRadioButton.setAttribute("id", "summer"+i);
+						newRadioButton.setAttribute("id", "summer"+i);
 						newRadioButton.setAttribute("value", "лето");
-				        break;}
+						break;}
 					case 4:{
-			            newRadioButton.setAttribute("id", "autumn"+i);
+						newRadioButton.setAttribute("id", "autumn"+i);
 						newRadioButton.setAttribute("value", "осень");
-				        break;}
+						break;}
 				}
-			    newRadioButton.setAttribute("name", "month"+i);
+				newRadioButton.setAttribute("name", "month"+i);
 				newRadioButton.setAttribute("class", "picRadio");
 				newRadioButton.onchange=function(){handleRadioChange(i);};
-			    newCell.append(newRadioButton);}
+				newCell.append(newRadioButton);}
 			else{
 				newCell.setAttribute("class", "cell headerRow");
-			    newCell.textContent=months[i].name;}
-            newRow.append(newCell);	  
-	    }
-        document.getElementById("GameGrid").append(newRow);
-    }
+				newCell.textContent=months[i].name;}
+			newRow.append(newCell);	  
+		}
+		document.getElementById("GameGrid").append(newRow);
+	}
 }
